@@ -69,14 +69,14 @@ const projects: Project[] = [
   },
   {
     id: 5,
-    title: "Wanderlust - Travel Listing Web App",
+    title: "LivoraStays – Travel Stay Booking Web App",
     description:
       "A full-stack Airbnb-inspired application that allows users to create, edit, view, and delete travel property listings. Includes client-side and server-side validation for robust data handling.",
     image:
       "https://images.unsplash.com/photo-1657256031855-68029292ff34?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8YWlyYm5ifGVufDB8fDB8fHww",
     techStack: ["Node.js", "Express", "MongoDB", "EJS", "Bootstrap"],
-    githubUrl: "https://github.com/anilyadav45/Wanderlust",
-    liveUrl: "#",
+    githubUrl: "https://github.com/anilyadav45/LivoraStays",
+    liveUrl: "https://livorastays.onrender.com/",
     status: "Completed",
   },
   {

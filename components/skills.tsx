@@ -12,11 +12,12 @@ import {
   Paintbrush,
   FileText,
   TerminalSquare,
-  FunctionSquare,
-  Settings2,
   Laptop2,
   Boxes,
   FileCode,
+  Cloud,
+  Globe,
+  Github,
 } from "lucide-react";
 
 interface Skill {
@@ -27,38 +28,31 @@ interface Skill {
 
 const categorizedSkills: Record<string, Skill[]> = {
   Development: [
-    { name: "HTML", icon: <Code className="w-10 h-10" />, level: 80 },
-    { name: "React", icon: <Atom className="w-10 h-10" />, level: 60 },
-    { name: "Tailwind", icon: <Paintbrush className="w-10 h-10" />, level: 85 },
-    { name: "EJS", icon: <FileText className="w-10 h-10" />, level: 80 },
+    { name: "HTML", icon: <Code className="w-10 h-10" />, level: 85 },
+    { name: "CSS", icon: <Paintbrush className="w-10 h-10" />, level: 80 },
+    { name: "JavaScript", icon: <Code className="w-10 h-10" />, level: 80 },
+    { name: "React", icon: <Atom className="w-10 h-10" />, level: 65 },
+    { name: "Next.js", icon: <Globe className="w-10 h-10" />, level: 60 },
     { name: "Node.js", icon: <ServerCog className="w-10 h-10" />, level: 80 },
-    {
-      name: "Express",
-      icon: <TerminalSquare className="w-10 h-10" />,
-      level: 80,
-    },
+    { name: "Express.js", icon: <TerminalSquare className="w-10 h-10" />, level: 80 },
     { name: "TypeScript", icon: <FileCode className="w-10 h-10" />, level: 65 },
     { name: "MongoDB", icon: <Database className="w-10 h-10" />, level: 75 },
     { name: "Java", icon: <Coffee className="w-10 h-10" />, level: 80 },
   ],
+
   "Tools & Platforms": [
-    { name: "Git", icon: <GitBranch className="w-10 h-10" />, level: 75 },
-    { name: "Vite", icon: <Settings2 className="w-10 h-10" />, level: 60 },
-    {
-      name: "Hoppscotch",
-      icon: <Settings2 className="w-10 h-10" />,
-      level: 75,
-    },
-    { name: "Docker", icon: <Boxes className="w-10 h-10" />, level: 30 },
-    { name: "Postman", icon: <Settings2 className="w-10 h-10" />, level: 60 },
+    { name: "Git", icon: <GitBranch className="w-10 h-10" />, level: 80 },
+    { name: "GitHub", icon: <Github className="w-10 h-10" />, level: 80 },
+    { name: "Postman", icon: <Boxes className="w-10 h-10" />, level: 65 },
+    { name: "Docker (Basics)", icon: <Boxes className="w-10 h-10" />, level: 40 },
+    { name: "REST APIs", icon: <Globe className="w-10 h-10" />, level: 75 },
+    { name: "SQL (Basics)", icon: <Database className="w-10 h-10" />, level: 50 },
   ],
+
   Systems: [
-    {
-      name: "Linux",
-      icon: <TerminalSquare className="w-10 h-10" />,
-      level: 75,
-    },
+    { name: "Linux", icon: <TerminalSquare className="w-10 h-10" />, level: 75 },
     { name: "Windows", icon: <Laptop2 className="w-10 h-10" />, level: 85 },
+    { name: "Cloud (Azure - Basics)", icon: <Cloud className="w-10 h-10" />, level: 40 },
   ],
 };
 
@@ -114,21 +108,30 @@ export default function Skills() {
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  whileHover={{ y: -5, scale: 1.05 }}
-                  className="bg-[#F1F5F9] dark:bg-[#1E293B] rounded-xl p-6 text-center shadow-md hover:shadow-lg transition-all duration-300"
+                  whileHover={{ y: -6, scale: 1.05 }}
+                  className="rounded-2xl p-6 text-center 
+                             bg-white/70 dark:bg-white/5 
+                             backdrop-blur-xl 
+                             border border-black/10 dark:border-white/10
+                             shadow-[0_10px_30px_rgba(0,0,0,0.08)] 
+                             hover:shadow-[0_20px_50px_rgba(59,130,246,0.25)] 
+                             transition-all duration-300"
                 >
                   <div className="flex justify-center items-center mb-4 text-[#3B82F6] dark:text-[#60A5FA]">
                     {skill.icon}
                   </div>
+
                   <h4 className="text-lg font-semibold mb-2">{skill.name}</h4>
-                  <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2.5">
+
+                  <div className="w-full bg-black/10 dark:bg-white/10 rounded-full h-2.5 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{ width: `${skill.level}%` }}
                       transition={{ duration: 1, delay: 0.5 }}
-                      className="h-2.5 rounded-full bg-[#3B82F6] dark:bg-[#60A5FA]"
-                    ></motion.div>
+                      className="h-2.5 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
+                    />
                   </div>
+
                   <p className="mt-2 text-sm text-[#475569] dark:text-[#CBD5E1]">
                     {skill.level}%
                   </p>

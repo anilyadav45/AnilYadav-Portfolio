@@ -28,6 +28,7 @@ export default function Resume() {
         </motion.div>
 
         <div className="flex flex-col md:flex-row gap-10">
+          {/* Education */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
@@ -40,7 +41,15 @@ export default function Resume() {
             </div>
 
             <div className="space-y-8">
-              <div className="bg-white dark:bg-[#1E293B] p-6 rounded-xl shadow-md">
+              <div
+                className="rounded-2xl p-6 
+                           bg-white/70 dark:bg-white/5 
+                           backdrop-blur-xl 
+                           border border-black/10 dark:border-white/10
+                           shadow-[0_10px_30px_rgba(0,0,0,0.08)] 
+                           hover:shadow-[0_20px_50px_rgba(59,130,246,0.25)] 
+                           transition-all duration-300"
+              >
                 <div className="flex items-center gap-2 mb-2">
                   <Calendar className="h-5 w-5 text-[#3B82F6] dark:text-[#60A5FA]" />
                   <span className="text-sm text-[#475569] dark:text-[#CBD5E1]">
@@ -61,6 +70,7 @@ export default function Resume() {
             </div>
           </motion.div>
 
+          {/* Achievements */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 50 }}
@@ -73,9 +83,15 @@ export default function Resume() {
             </div>
 
             <div className="space-y-8">
-
-
-              <div className="bg-white dark:bg-[#1E293B] p-6 rounded-xl shadow-md">
+              <div
+                className="rounded-2xl p-6 
+                           bg-white/70 dark:bg-white/5 
+                           backdrop-blur-xl 
+                           border border-black/10 dark:border-white/10
+                           shadow-[0_10px_30px_rgba(0,0,0,0.08)] 
+                           hover:shadow-[0_20px_50px_rgba(59,130,246,0.25)] 
+                           transition-all duration-300"
+              >
                 <h4 className="text-xl font-semibold mb-2">
                   Started Contributing on GitHub
                 </h4>
@@ -89,19 +105,24 @@ export default function Resume() {
           </motion.div>
         </div>
 
+        {/* Download */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5, delay: 0.6 }}
           className="flex justify-center mt-12"
         >
-<a href="/resume.pdf" download>
-  <Button className="bg-[#3B82F6] hover:bg-[#2563EB] dark:bg-[#60A5FA] dark:hover:bg-[#3B82F6] text-white px-6 py-3 rounded-lg text-lg font-medium flex items-center gap-2">
-    <Download className="h-5 w-5" />
-    Download Resume
-  </Button>
-</a>
-
+          <a href="/resume.pdf" download>
+            <Button
+              className="px-6 py-3 rounded-xl text-lg font-medium flex items-center gap-2 
+                         bg-gradient-to-r from-blue-500 to-cyan-500 
+                         hover:from-blue-600 hover:to-cyan-600 
+                         text-white shadow-md hover:shadow-lg transition-all duration-300"
+            >
+              <Download className="h-5 w-5" />
+              Download Resume
+            </Button>
+          </a>
         </motion.div>
       </div>
     </section>

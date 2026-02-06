@@ -3,8 +3,35 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
+
+type Particle = {
+  width: number;
+  height: number;
+  left: string;
+  top: string;
+  x: number[];
+  y: number[];
+  duration: number;
+};
 
 export default function Hero() {
+  const [particles, setParticles] = useState<Particle[]>([]);
+
+  useEffect(() => {
+    const generated: Particle[] = Array.from({ length: 20 }).map(() => ({
+      width: Math.random() * 50 + 10,
+      height: Math.random() * 50 + 10,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      x: [0, Math.random() * 100 - 50],
+      y: [0, Math.random() * 100 - 50],
+      duration: Math.random() * 10 + 10,
+    }));
+
+    setParticles(generated);
+  }, []);
+
   const scrollToProjects = () => {
     const projectsSection = document.getElementById("projects");
     if (projectsSection) {
@@ -22,22 +49,22 @@ export default function Hero() {
 
       {/* Animated particles */}
       <div className="absolute inset-0 z-0">
-        {[...Array(20)].map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full bg-[#3B82F6] dark:bg-[#60A5FA] opacity-20"
             style={{
-              width: Math.random() * 50 + 10,
-              height: Math.random() * 50 + 10,
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
+              width: p.width,
+              height: p.height,
+              left: p.left,
+              top: p.top,
             }}
             animate={{
-              x: [0, Math.random() * 100 - 50],
-              y: [0, Math.random() * 100 - 50],
+              x: p.x,
+              y: p.y,
             }}
             transition={{
-              duration: Math.random() * 10 + 10,
+              duration: p.duration,
               repeat: Infinity,
               repeatType: "reverse",
             }}
